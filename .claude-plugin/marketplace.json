@@ -1,0 +1,12 @@
+{
+  "name": "claudle-jump",
+  "owner": { "name": "Moritz Staat" },
+  "metadata": { "description": "Doodle Jump for the Claude Code terminal" },
+  "plugins": [
+    {
+      "name": "claudle-jump",
+      "source": "./",
+      "description": "Play Doodle Jump in an ASCII pane while Claude Code works."
+    }
+  ]
+}

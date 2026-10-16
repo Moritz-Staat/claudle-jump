@@ -1,0 +1,9 @@
+{
+  "name": "claudle-jump",
+  "version": "0.1.0",
+  "description": "Play Doodle Jump in an ASCII pane while Claude Code works. Open it with /jump.",
+  "author": { "name": "Moritz Staat" },
+  "repository": "https://github.com/Moritz-Staat/claudle-jump",
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}
