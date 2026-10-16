@@ -93,10 +93,13 @@ export const register: Register = on => {
       presses: await read($, presses),
     }
     const tap = (key: keyof Presses) => () => update($, presses, p => ({ ...p, [key]: p[key] + 1 }))
+    // A Client with no size is only as tall as its first drawing: size it to the pane body, less the hotkey row.
+    const rows = Math.max(12, (e.props.scroll.bodyRows || e.viewport?.rows || 26) - 1)
+    const columns = Math.max(20, e.props.bodyColumns || e.viewport?.columns || 44)
 
     return (
-      <Box flexDirection="column" height="100%">
-        <Client key="board" module="./surface.tsx" props={props} width="100%" flexGrow={1} />
+      <Box flexDirection="column">
+        <Client key="board" module="./surface.tsx" props={props} width={columns} height={rows} />
         <Box justifyContent="center">
           <Button key="left" plain hotkey="a" label="left " onPress={tap('left')} />
           <Button key="right" plain hotkey="d" label="right " onPress={tap('right')} />

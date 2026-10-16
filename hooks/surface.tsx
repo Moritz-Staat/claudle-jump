@@ -44,8 +44,8 @@ const COLORS: Record<Kind, Color> = {
 
 function size(surface: ClientSurface<BoardState>): { width: number; height: number } {
   return {
-    width: Math.max(16, Math.min(40, surface.columns - 2)),
-    height: Math.max(8, Math.min(60, surface.rows - 2)),
+    width: Math.max(16, Math.min(48, surface.columns - 2)),
+    height: Math.max(8, Math.min(120, surface.rows - 3)),
   }
 }
 
@@ -240,6 +240,7 @@ const Board: ClientModule<BoardProps, BoardState> = (props, surface) => {
           <Text color="gray">|</Text>
         </Text>
       ))}
+      <Text color="gray">{'+' + '-'.repeat(game.width) + '+'}</Text>
     </Box>
   )
 }
