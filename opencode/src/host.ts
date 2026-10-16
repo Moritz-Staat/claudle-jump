@@ -45,6 +45,7 @@ export type SlotClaim =
 export type Context = {
   readonly app: { readonly version: string };
   readonly renderer: { readonly width: number; readonly height: number };
+  readonly themeMode: 'dark' | 'light';
   readonly keymap: {
     layer(input: () => KeymapLayer): void;
     dispatch(id: string, input?: string): void;
@@ -65,6 +66,9 @@ export type Context = {
   };
   readonly ui: {
     readonly toast: { show(options: { readonly title?: string; readonly message: string }): void };
+    readonly router: {
+      current(): { readonly type: string; readonly sessionID?: string };
+    };
     readonly panel: {
       open(name: string, options?: { readonly presentation?: 'panel' | 'fullscreen' }): boolean;
       close(): void;
